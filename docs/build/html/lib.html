@@ -1,0 +1,1566 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="main module" href="main.html" /><link rel="prev" title="exceptions module" href="exceptions.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+        <title>lib package - Hotels Telegram Bot 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Hotels Telegram Bot 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Hotels Telegram Bot 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">ostap-telegram-bot</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html">consts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html">enums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">exceptions module</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messages.html">messages module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">services module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validators.html">validators module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="lib-package">
+<h1>lib package<a class="headerlink" href="#lib-package" title="Permalink to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-lib.exceptions">
+<span id="lib-exceptions-module"></span><h2>lib.exceptions module<a class="headerlink" href="#module-lib.exceptions" title="Permalink to this heading">#</a></h2>
+<p>Module which describes common exceptions to be used across the library.</p>
+<p>It’s basically a module which has exceptions defined in one place and could
+be shared accross the library to refer to exceptions.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="lib.exceptions.AmbigousCityException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.exceptions.</span></span><span class="sig-name descname"><span class="pre">AmbigousCityException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lib.models.LocationDataclass" title="lib.models.LocationDataclass"><span class="pre">models.LocationDataclass</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/exceptions.html#AmbigousCityException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.exceptions.AmbigousCityException" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.exceptions.HotelsAPIException" title="lib.exceptions.HotelsAPIException"><code class="xref py py-class docutils literal notranslate"><span class="pre">HotelsAPIException</span></code></a></p>
+<p>An exception represents that there were multiple cities to choose from.</p>
+<p>It’s possible that on a request to the api, that there would be multiple
+cities to choose from. Hence the exception is raised.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>message: a formatted message with the exception containing</dt><dd><p>locations(cities) that were found and were unable to be distincted</p>
+</dd>
+<dt>locations: list of locations(models.LocationDataclass) representing</dt><dd><dl class="simple">
+<dt>locations that were found, but were unable to be distincted which</dt><dd><p>one to use</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="lib.exceptions.CountryNotSupported">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.exceptions.</span></span><span class="sig-name descname"><span class="pre">CountryNotSupported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/exceptions.html#CountryNotSupported"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.exceptions.CountryNotSupported" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.exceptions.HotelsAPIException" title="lib.exceptions.HotelsAPIException"><code class="xref py py-class docutils literal notranslate"><span class="pre">HotelsAPIException</span></code></a></p>
+<p>An exception represents that country is not supported by the API.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>country_code: a string representing a code of country which is not supported
+message: full message containing formatted message of the exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="lib.exceptions.HotelsAPIException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.exceptions.</span></span><span class="sig-name descname"><span class="pre">HotelsAPIException</span></span><a class="reference internal" href="_modules/lib/exceptions.html#HotelsAPIException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.exceptions.HotelsAPIException" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.exceptions.RapidAPIException" title="lib.exceptions.RapidAPIException"><code class="xref py py-class docutils literal notranslate"><span class="pre">RapidAPIException</span></code></a></p>
+<p>Base exception that represents an exception happened in during handling
+an api request in Hotels api.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="lib.exceptions.RapidAPIException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.exceptions.</span></span><span class="sig-name descname"><span class="pre">RapidAPIException</span></span><a class="reference internal" href="_modules/lib/exceptions.html#RapidAPIException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.exceptions.RapidAPIException" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base exception that represents an exception happened during handling
+an api request.</p>
+</dd></dl>
+
+</section>
+<section id="module-lib.geocoding">
+<span id="lib-geocoding-module"></span><h2>lib.geocoding module<a class="headerlink" href="#module-lib.geocoding" title="Permalink to this heading">#</a></h2>
+<p>Module consists of a class that interacts with Forward &amp; Reverse Geocoding API.</p>
+<p>This module contains functions and class that are wrappers around a 
+Forward &amp; Reverse Geocoding API from Rapid.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>from lib import geocoding
+geocoding_client = geocoding.GeocodingAPI(“your rapid api key”)
+city: models.CityLocationDataclass
+city = geocoding_client.forward_geocoding(“New York”)</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.geocoding.</span></span><span class="sig-name descname"><span class="pre">GeocodingAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/geocoding.html#GeocodingAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.geocoding.GeocodingAPI" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RapidAPIBase</span></code></p>
+<p>A class wrapper around a Forward &amp; Reverse Geooding API from RapidAPI.</p>
+<p>This class implements only one method of the API which is used to get 
+a full city information from a user-written query.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>base_url: a class defined string url to be used to query API from
+host: a class defined string representing host to be used in RapidAPI
+locale: a class defined string representing a locale 
+specification(IBM; ISO-639, ISO-3166) to be used in API responses.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingAPI.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://forward-reverse-geocoding.p.rapidapi.com'</span></em><a class="headerlink" href="#lib.geocoding.GeocodingAPI.base_url" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingAPI.forward_geocoding">
+<span class="sig-name descname"><span class="pre">forward_geocoding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lib.models.CityLocationDataclass" title="lib.models.CityLocationDataclass"><span class="pre">CityLocationDataclass</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/lib/geocoding.html#GeocodingAPI.forward_geocoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.geocoding.GeocodingAPI.forward_geocoding" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a list of cities found from forward geocoding.</p>
+<p>Retrieves info from /v1/forward geocoding API and stores it in a list
+of dataclasses.</p>
+<dl>
+<dt>Args:</dt><dd><p>city: a string containing a city to search for</p>
+</dd>
+<dt>Returns:</dt><dd><p>A list of GeocodingLocationDataclass that represent info about
+found cities for example a repr of one element:
+GeocodingLocationDataclass(</p>
+<blockquote>
+<div><p>id=304519492, 
+name=’New York’, 
+type=&lt;LocationTypeEnum.city: ‘CITY’&gt;, 
+coordinates=CoordinatesDataclass(</p>
+<blockquote>
+<div><p>lat=’40.7127281’, 
+long=’-74.0060152’</p>
+</div></blockquote>
+<p>), 
+country=’United States’, 
+importance=0.81757661145185</p>
+</div></blockquote>
+<p>)</p>
+</dd>
+<dt>Note:</dt><dd><ul class="simple">
+<li><p>the returned model of GeocodingLocationDataclass should not</p></li>
+</ul>
+<p>be relied upon if you are building a user-space code to retrieve
+info about a city. Instead a models.CityLocationDataclass should
+be used</p>
+<ul class="simple">
+<li><p>additional keyword arguments could be provided to the api call</p></li>
+</ul>
+<p>using kwargs argument, but be careful to do so from the user-code
+the signature of just getting a city is pretty generic and should
+be relied upon in future implementations of any geocoding apis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingAPI.host">
+<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forward-reverse-geocoding.p.rapidapi.com'</span></em><a class="headerlink" href="#lib.geocoding.GeocodingAPI.host" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingAPI.locale">
+<span class="sig-name descname"><span class="pre">locale</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en_US'</span></em><a class="headerlink" href="#lib.geocoding.GeocodingAPI.locale" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingLocationDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.geocoding.</span></span><span class="sig-name descname"><span class="pre">GeocodingLocationDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.LocationTypeEnum" title="lib.models.LocationTypeEnum"><span class="pre">LocationTypeEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">importance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/geocoding.html#GeocodingLocationDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.geocoding.GeocodingLocationDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.models.CityLocationDataclass" title="lib.models.CityLocationDataclass"><code class="xref py py-class docutils literal notranslate"><span class="pre">CityLocationDataclass</span></code></a></p>
+<p>A data store derived from models.CityLocationDataclass to store API specific data.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>id - a unique identifier of a city specific for the geocoding API.
+name - a human-readable name of the city with country stripped. E.g: Dallas.
+type - a type of location, always models.LocationTypeEnum.city in this case.
+coordinates - a coordinates of a city retrieved from the API.
+country - a string representing a country name of a city. E.g United States
+importance - an API specific field which represents confidence about the</p>
+<blockquote>
+<div><p>query</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.geocoding.GeocodingLocationDataclass.importance">
+<span class="sig-name descname"><span class="pre">importance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#lib.geocoding.GeocodingLocationDataclass.importance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lib.hotels">
+<span id="lib-hotels-module"></span><h2>lib.hotels module<a class="headerlink" href="#module-lib.hotels" title="Permalink to this heading">#</a></h2>
+<p>Module that provides a class and dataclasses to interact with Hotels.com API.</p>
+<p>It consists of a class and dataclasses used exclusively with interacting with
+the hotel.com api. A few utils functions that provide parsing routines of the
+responses of the api.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>from lib import hotels
+hotels_client = HotelsAPI(api_key=”RAPID_API_KEY”)
+locations: models.LocationDataclass
+locations = hotels_client.search_locations(“New York”)</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsRating">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">EnumHotelsRating</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#EnumHotelsRating"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.EnumHotelsRating" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Hotels guest rating as defined in the API definition.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>good: 7+ in the hotels.com filters
+very_good: 8+ in the hotels.com filters
+wonderful: 9+ in the hotels.com filters</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsRating.good">
+<span class="sig-name descname"><span class="pre">good</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">35</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsRating.good" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsRating.very_good">
+<span class="sig-name descname"><span class="pre">very_good</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsRating.very_good" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsRating.wonderful">
+<span class="sig-name descname"><span class="pre">wonderful</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">45</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsRating.wonderful" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">EnumHotelsSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#EnumHotelsSort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.EnumHotelsSort" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Sorting options for the API.</p>
+<p>Contain all the possible sorting options available through the API.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>price_asc: sorting by price ascending
+price_relevant: sorting by price ascending(?) and platform recommendations
+review: sort by by guest rating descending(?)
+distance: sort by distance descending(?)
+stars: sort by count of hotel stars descending(?)
+recommended: sort by the recommendations of the platform</p>
+</dd>
+<dt>Note:</dt><dd><p>its unclear from the API definition either some sorting options
+are ascending or descending, its worth a manual try to understand it</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISTANCE'</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsSort.distance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort.price_asc">
+<span class="sig-name descname"><span class="pre">price_asc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PRICE_LOW_TO_HIGH'</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsSort.price_asc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort.price_relevant">
+<span class="sig-name descname"><span class="pre">price_relevant</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PRICE_RELEVANT'</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsSort.price_relevant" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort.recommended">
+<span class="sig-name descname"><span class="pre">recommended</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RECOMMENDED'</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsSort.recommended" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort.review">
+<span class="sig-name descname"><span class="pre">review</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'REVIEW'</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsSort.review" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.EnumHotelsSort.stars">
+<span class="sig-name descname"><span class="pre">stars</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROPERTY_CLASS'</span></em><a class="headerlink" href="#lib.hotels.EnumHotelsSort.stars" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsAPI" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RapidAPIBase</span></code></p>
+<p>Provides methods to interact with hotels.com API from RapidAPI.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>locale: a string representing a locale to be used in searches in ISO format
+e.g: en_US, ru_RU, en_GB, and so on</p>
+<p>currency: a currency to be used in return from the APIs calls, e.g: USD, RUB, …</p>
+<p>base_url: a base url that would be added into every request
+host: a host that is needed for the RapidAPI to distinguish where to route request to</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://hotels4.p.rapidapi.com'</span></em><a class="headerlink" href="#lib.hotels.HotelsAPI.base_url" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.currency">
+<span class="sig-name descname"><span class="pre">currency</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'USD'</span></em><a class="headerlink" href="#lib.hotels.HotelsAPI.currency" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.get_meta_data">
+<span class="sig-name descname"><span class="pre">get_meta_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.HotelsCountryInfoDataclass" title="lib.hotels.HotelsCountryInfoDataclass"><span class="pre">HotelsCountryInfoDataclass</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsAPI.get_meta_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsAPI.get_meta_data" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.host">
+<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hotels4.p.rapidapi.com'</span></em><a class="headerlink" href="#lib.hotels.HotelsAPI.host" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.locale">
+<span class="sig-name descname"><span class="pre">locale</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en_US'</span></em><a class="headerlink" href="#lib.hotels.HotelsAPI.locale" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.search_locations">
+<span class="sig-name descname"><span class="pre">search_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lib.models.LocationDataclass" title="lib.models.LocationDataclass"><span class="pre">LocationDataclass</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsAPI.search_locations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsAPI.search_locations" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets all the locations(cities, hotels) for the given query.</p>
+<p>This is quite counter-intuitive, but locations could be not only
+cities, parks, point of views but also hotels. Mainly this method
+is used to get cities locations specific for the hotels API, and then
+obtained info about in consequent properties searches.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>query: a string representing a location to search for, for example: New York, Dallas, …
+locale: an ISO locale to be used in response such as ru_RU, en_GB, en_US</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.search_properties">
+<span class="sig-name descname"><span class="pre">search_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_dataclass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass" title="lib.hotels.HotelsPropertySearchDataclass"><span class="pre">HotelsPropertySearchDataclass</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lib.models.PropertyDataclass" title="lib.models.PropertyDataclass"><span class="pre">PropertyDataclass</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsAPI.search_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsAPI.search_properties" title="Permalink to this definition">#</a></dt>
+<dd><p>Searches for properties listed in the hotels.com.</p>
+<p>This method gets the information about the properties that could be
+checked in furtherly by the persons that are searching for properties.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>search_dataclass: a dataclass that consists all the filled info
+about the search such as dates, price filter, amount of persons
+and so on</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsAPI.update_property_with_info">
+<span class="sig-name descname"><span class="pre">update_property_with_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.PropertyDataclass" title="lib.models.PropertyDataclass"><span class="pre">PropertyDataclass</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lib.models.PropertyDataclass" title="lib.models.PropertyDataclass"><span class="pre">PropertyDataclass</span></a></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsAPI.update_property_with_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsAPI.update_property_with_info" title="Permalink to this definition">#</a></dt>
+<dd><p>Obtains info about a property from its’ id and adds additional info.</p>
+<p>Some info such as images and address is not being listed in the
+/v2/list/ API call, and thus that info should be obtained through this
+API call</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>prop: a dataclass that represents a property</p>
+</dd>
+<dt>Note:</dt><dd><p>it updates the original property</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCheckpoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsCheckpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsCheckpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsCheckpoint" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Date of either a check in or check out to search hotels for.</p>
+<p>Basically holds info about when the check in or check out dates could occur
+from the customer perspective.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>day: an integer representing a day within a month 0-31
+month: an integer representing a month of a year 1-12
+year: an integer representing a year</p>
+</dd>
+<dt>Note:</dt><dd><p>values of a dataclass to be populated are not validated, means that it
+just stores info, you have to validate info yourself before puting
+it into the dataclass</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCheckpoint.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsCheckpoint.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsCheckpoint.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Builds a query dict to be used in search of properties API query.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>a dict containing dataclass attributes as keys and values of those
+in values</p>
+</dd>
+<dt>Note:</dt><dd><p>the return model is not strictly set, it will change on any new
+attribute added to the dataclass. Make sure to maintain the current
+protocol and convention of the attributes of this dataclass.
+Otherwise you would get either an error from the API, or you would
+get invalid responses from the API.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCheckpoint.day">
+<span class="sig-name descname"><span class="pre">day</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsCheckpoint.day" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCheckpoint.from_datetime">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsCheckpoint.from_datetime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsCheckpoint.from_datetime" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates an instance of the dataclass from datetime object.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">datetime_</span></a>: a datetime object that should hold info about a</dt><dd><p>day, month and a year</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>an instance of the dataclass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCheckpoint.month">
+<span class="sig-name descname"><span class="pre">month</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsCheckpoint.month" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCheckpoint.year">
+<span class="sig-name descname"><span class="pre">year</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsCheckpoint.year" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCountryInfoDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsCountryInfoDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tpid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eapid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsCountryInfoDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsCountryInfoDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Information about a country.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>code: ISO country code (see IBM definition)
+site_id: and internal hotels’ site_id
+tpid: an internal id of the hotels
+eapid: optional id that stores an internal id of hotels API</p>
+</dd>
+<dt>Note:</dt><dd><p>eapid is optional for a reason, some countries may not have it for
+some reason, but it could be used when searching for the properties
+and locations</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCountryInfoDataclass.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lib.hotels.HotelsCountryInfoDataclass.code" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCountryInfoDataclass.eapid">
+<span class="sig-name descname"><span class="pre">eapid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lib.hotels.HotelsCountryInfoDataclass.eapid" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCountryInfoDataclass.site_id">
+<span class="sig-name descname"><span class="pre">site_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsCountryInfoDataclass.site_id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsCountryInfoDataclass.tpid">
+<span class="sig-name descname"><span class="pre">tpid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsCountryInfoDataclass.tpid" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestination">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsDestination</span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsDestination"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsDestination" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base dataclass to be used in search of a destination.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationCoordinates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsDestinationCoordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsDestinationCoordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsDestinationCoordinates" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.hotels.HotelsDestination" title="lib.hotels.HotelsDestination"><code class="xref py py-class docutils literal notranslate"><span class="pre">HotelsDestination</span></code></a></p>
+<p>Dataclass that provides a store for coordinates and function to build a query.</p>
+<p>Mainly its supposed to be used with search_properties of HotelsAPI and that
+should call build_query_dict to create an API specific dict to query it</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>coordinates: a coordinates dataclass that holds info about coordinates</dt><dd><p>to be used in search locations of the hotels api</p>
+</dd>
+</dl>
+</dd>
+<dt>Note:</dt><dd><p>its worth noting that coordinates in the api are optional, they can’t
+be used to just substitute search by regionId(gaiaId of the city),
+it could only be used in conjunction with regionId search to kind of
+precise the coordinates of where you would like to query properties from</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationCoordinates.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsDestinationCoordinates.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsDestinationCoordinates.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Builds a dict to be used in search for properties queries.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>a dict containing two keys which represent coordinates of the
+location to search properties around from</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationCoordinates.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></em><a class="headerlink" href="#lib.hotels.HotelsDestinationCoordinates.coordinates" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationRegionID">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsDestinationRegionID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsDestinationRegionID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsDestinationRegionID" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.hotels.HotelsDestination" title="lib.hotels.HotelsDestination"><code class="xref py py-class docutils literal notranslate"><span class="pre">HotelsDestination</span></code></a></p>
+<p>Id of the location to search properties from.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id: an integer which is gaiaId returned from the search_locations API</p>
+</dd>
+<dt>Note:</dt><dd><dl class="simple">
+<dt>required to be used in search_properties API query as long as its</dt><dd><p>mandatory in a api definition</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationRegionID.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsDestinationRegionID.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsDestinationRegionID.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Builds a query dict to be used in an API call.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>returns a dict containing an id of the region to search for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationRegionID.from_location_dataclass">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_location_dataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.LocationDataclass" title="lib.models.LocationDataclass"><span class="pre">LocationDataclass</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsDestinationRegionID.from_location_dataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsDestinationRegionID.from_location_dataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates an instance of the dataclass from a LocationDataclass.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>returns an instance of the dataclass from the LocationDataclass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsDestinationRegionID.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsDestinationRegionID.id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsFilter</span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Filter to be used in searching for property</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPriceFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsPriceFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsPriceFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsPriceFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.hotels.HotelsFilter" title="lib.hotels.HotelsFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">HotelsFilter</span></code></a>, <a class="reference internal" href="#lib.models.PriceFilter" title="lib.models.PriceFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PriceFilter</span></code></a></p>
+<p>Filter by price in the API.</p>
+<p>Its derived from the base price filter and is meant to be used when filtering
+out the price by the minimum and maximum range.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>max_price: holds info about a maximum price of the property(a hotel) to seek for
+min_price: holds info about a minimum price of the property(a hotel) to seek for</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPriceFilter.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsPriceFilter.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsPriceFilter.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Builds a query dict to be used in API search for properties call.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPriceFilter.from_generic_price_filter">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_generic_price_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.PriceFilter" title="lib.models.PriceFilter"><span class="pre">PriceFilter</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsPriceFilter.from_generic_price_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsPriceFilter.from_generic_price_filter" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates an instance of this dataclass from the generic price filter.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPriceFilter.max_price">
+<span class="sig-name descname"><span class="pre">max_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsPriceFilter.max_price" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPriceFilter.min_price">
+<span class="sig-name descname"><span class="pre">min_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsPriceFilter.min_price" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsPropertySearchDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.EnumCurrency" title="lib.models.EnumCurrency"><span class="pre">EnumCurrency</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">locale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.EnumLocale" title="lib.models.EnumLocale"><span class="pre">EnumLocale</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.HotelsDestination" title="lib.hotels.HotelsDestination"><span class="pre">HotelsDestination</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.HotelsCheckpoint" title="lib.hotels.HotelsCheckpoint"><span class="pre">HotelsCheckpoint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.HotelsCheckpoint" title="lib.hotels.HotelsCheckpoint"><span class="pre">HotelsCheckpoint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rooms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.HotelsRooms" title="lib.hotels.HotelsRooms"><span class="pre">HotelsRooms</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lib.hotels.HotelsFilter" title="lib.hotels.HotelsFilter"><span class="pre">HotelsFilter</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.EnumHotelsSort" title="lib.hotels.EnumHotelsSort"><span class="pre">EnumHotelsSort</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsPropertySearchDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Information about the search query for properties.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>currency: currency as a short code
+locale: ISO locale. E.g: ru_RU, en_US, en_GB, …
+destination: info about a destination. Usually being a regionid
+check_in: info about the desired time of a checkin into the hotel
+check_out: info about a desired time of a checkout out of the hotel
+rooms: rooms that are needed for specific-aged people as defined in HotelsRooms
+filters: a list of hotels-specific filters to be used in a search query
+sort: sort by chosen from the available sorting options from the Enum
+result_offset: a result offset to start search from. Could be used for pagination purposes
+result_limit: a limit how many results to get from the API</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/lib/hotels.html#HotelsPropertySearchDataclass.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Build a query dict needed for the search for properties API.</p>
+<p>Uses a utility function to generate a dict(JSON) query for the search
+for properties api.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>a dict that should be used for querying the API</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.check_in">
+<span class="sig-name descname"><span class="pre">check_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.HotelsCheckpoint" title="lib.hotels.HotelsCheckpoint"><span class="pre">HotelsCheckpoint</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.check_in" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.check_out">
+<span class="sig-name descname"><span class="pre">check_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.HotelsCheckpoint" title="lib.hotels.HotelsCheckpoint"><span class="pre">HotelsCheckpoint</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.check_out" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.currency">
+<span class="sig-name descname"><span class="pre">currency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.EnumCurrency" title="lib.models.EnumCurrency"><span class="pre">EnumCurrency</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.currency" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.destination">
+<span class="sig-name descname"><span class="pre">destination</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.HotelsDestination" title="lib.hotels.HotelsDestination"><span class="pre">HotelsDestination</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.destination" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.filters">
+<span class="sig-name descname"><span class="pre">filters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lib.hotels.HotelsFilter" title="lib.hotels.HotelsFilter"><span class="pre">HotelsFilter</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.filters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.locale">
+<span class="sig-name descname"><span class="pre">locale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.EnumLocale" title="lib.models.EnumLocale"><span class="pre">EnumLocale</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.locale" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.result_limit">
+<span class="sig-name descname"><span class="pre">result_limit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.result_limit" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.result_offset">
+<span class="sig-name descname"><span class="pre">result_offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.result_offset" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.rooms">
+<span class="sig-name descname"><span class="pre">rooms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.HotelsRooms" title="lib.hotels.HotelsRooms"><span class="pre">HotelsRooms</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.rooms" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsPropertySearchDataclass.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.EnumHotelsSort" title="lib.hotels.EnumHotelsSort"><span class="pre">EnumHotelsSort</span></a></em><a class="headerlink" href="#lib.hotels.HotelsPropertySearchDataclass.sort" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsRatingFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsRatingFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.hotels.EnumHotelsRating" title="lib.hotels.EnumHotelsRating"><span class="pre">EnumHotelsRating</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsRatingFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsRatingFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.hotels.HotelsFilter" title="lib.hotels.HotelsFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">HotelsFilter</span></code></a></p>
+<p>Hotels rating filter to be used in API query.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>rating: a rating from the defined API of the hotels.com</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsRatingFilter.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsRatingFilter.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsRatingFilter.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Builds a dict to be used in search for properties filters.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>a dict containing a key guestRating and the respective rating value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsRatingFilter.rating">
+<span class="sig-name descname"><span class="pre">rating</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.hotels.EnumHotelsRating" title="lib.hotels.EnumHotelsRating"><span class="pre">EnumHotelsRating</span></a></em><a class="headerlink" href="#lib.hotels.HotelsRatingFilter.rating" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.hotels.HotelsRooms">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">HotelsRooms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsRooms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsRooms" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Count of rooms for adults and children.</p>
+<p>For now it stores info about count of adults that are going into some hotel.
+And is used when searching for properties to define how many humans would be
+living in a property.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>adults: amount of adults that would be living in a property</p>
+</dd>
+<dt>Note:</dt><dd><p>its also possible to implement holding info about how many children
+would be there.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.hotels.HotelsRooms.adults">
+<span class="sig-name descname"><span class="pre">adults</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.hotels.HotelsRooms.adults" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.hotels.HotelsRooms.build_query_dict">
+<span class="sig-name descname"><span class="pre">build_query_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/hotels.html#HotelsRooms.build_query_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.HotelsRooms.build_query_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a dictionary to be used in searching for property.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>a list of of human types and their amount that are going to live
+in a property, for now only one element containing info about adults</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.hotels.generic_search_filter_adapter">
+<span class="sig-prename descclassname"><span class="pre">lib.hotels.</span></span><span class="sig-name descname"><span class="pre">generic_search_filter_adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.SearchFilter" title="lib.models.SearchFilter"><span class="pre">SearchFilter</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lib.hotels.HotelsFilter" title="lib.hotels.HotelsFilter"><span class="pre">HotelsFilter</span></a></span></span><a class="reference internal" href="_modules/lib/hotels.html#generic_search_filter_adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.hotels.generic_search_filter_adapter" title="Permalink to this definition">#</a></dt>
+<dd><p>Adapter/factory to create hotels specific filters from a base dataclasses.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p><a href="#id3"><span class="problematic" id="id4">filter_</span></a>: a base dataclass for a filter from a models module</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: if no adapters were found for the provided filter dataclass</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-lib.models">
+<span id="lib-models-module"></span><h2>lib.models module<a class="headerlink" href="#module-lib.models" title="Permalink to this heading">#</a></h2>
+<p>A module that consists of all the base dataclass aka models, as well enums to use accross the lib.</p>
+<p>The models here could be used internally by the library, as well as externally
+to refer to the same entities across the project.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.CityLocationDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">CityLocationDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.LocationTypeEnum" title="lib.models.LocationTypeEnum"><span class="pre">LocationTypeEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#CityLocationDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.CityLocationDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.models.LocationDataclass" title="lib.models.LocationDataclass"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocationDataclass</span></code></a></p>
+<p>City location information.</p>
+<p>Inherits location dataclass and adds a new option about a country.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>country: a string representing a country</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.CityLocationDataclass.country">
+<span class="sig-name descname"><span class="pre">country</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lib.models.CityLocationDataclass.country" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.CoordinatesDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">CoordinatesDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#CoordinatesDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.CoordinatesDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Coordinates information.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>lat: an attribute that represents a latitude
+long: an attribute that represents a long</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.CoordinatesDataclass.lat">
+<span class="sig-name descname"><span class="pre">lat</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Decimal</span></em><a class="headerlink" href="#lib.models.CoordinatesDataclass.lat" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.CoordinatesDataclass.long">
+<span class="sig-name descname"><span class="pre">long</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Decimal</span></em><a class="headerlink" href="#lib.models.CoordinatesDataclass.long" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.DistanceDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">DistanceDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.EnumDistanceUnit" title="lib.models.EnumDistanceUnit"><span class="pre">EnumDistanceUnit</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#DistanceDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.DistanceDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Information about a distance in decimal and the unit.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>distance: a decimal, or basically a float that represents value of the distance
+unit: a unit that is used to represent the distance value, such as mile</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.DistanceDataclass.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Decimal</span></em><a class="headerlink" href="#lib.models.DistanceDataclass.distance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.models.DistanceDataclass.get_kilometers">
+<span class="sig-name descname"><span class="pre">get_kilometers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Decimal</span></span></span><a class="reference internal" href="_modules/lib/models.html#DistanceDataclass.get_kilometers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.DistanceDataclass.get_kilometers" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a distance in kilometers.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.DistanceDataclass.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.EnumDistanceUnit" title="lib.models.EnumDistanceUnit"><span class="pre">EnumDistanceUnit</span></a></em><a class="headerlink" href="#lib.models.DistanceDataclass.unit" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.EnumCurrency">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">EnumCurrency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#EnumCurrency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.EnumCurrency" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Currency info.</p>
+<p>Consists of all the known currencies to be used.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>USD: a tuple representing a short code of the currency and a full name
+RUB: a tuple representing a short code of the currency and a full name</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.EnumCurrency.RUB">
+<span class="sig-name descname"><span class="pre">RUB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('RUB',</span> <span class="pre">'Russian</span> <span class="pre">Ruble')</span></em><a class="headerlink" href="#lib.models.EnumCurrency.RUB" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.EnumCurrency.USD">
+<span class="sig-name descname"><span class="pre">USD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('USD',</span> <span class="pre">'US</span> <span class="pre">Dollar')</span></em><a class="headerlink" href="#lib.models.EnumCurrency.USD" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.models.EnumCurrency.get_code">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#EnumCurrency.get_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.EnumCurrency.get_code" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a code of the selected currency.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.models.EnumCurrency.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#EnumCurrency.get_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.EnumCurrency.get_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a name of the selected currency.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.EnumDistanceUnit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">EnumDistanceUnit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#EnumDistanceUnit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.EnumDistanceUnit" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enumeration of the known distance units.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>Mile: an entity that represents a land-mile
+Kilometer: an entity that represents a kilometer</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.EnumDistanceUnit.Kilometer">
+<span class="sig-name descname"><span class="pre">Kilometer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'KILOMETER'</span></em><a class="headerlink" href="#lib.models.EnumDistanceUnit.Kilometer" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.EnumDistanceUnit.Mile">
+<span class="sig-name descname"><span class="pre">Mile</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MILE'</span></em><a class="headerlink" href="#lib.models.EnumDistanceUnit.Mile" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.EnumLocale">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">EnumLocale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#EnumLocale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.EnumLocale" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enumeration of the known locales.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>ru_RU: a locale that represents a russian locale
+en_GB: a locale that represents a british locale</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.EnumLocale.en_GB">
+<span class="sig-name descname"><span class="pre">en_GB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Locale(code='en_GB',</span> <span class="pre">country='British')</span></em><a class="headerlink" href="#lib.models.EnumLocale.en_GB" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.models.EnumLocale.get_code">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#EnumLocale.get_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.EnumLocale.get_code" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the code of the selected locale.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.EnumLocale.ru_RU">
+<span class="sig-name descname"><span class="pre">ru_RU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Locale(code='ru_RU',</span> <span class="pre">country='Russian')</span></em><a class="headerlink" href="#lib.models.EnumLocale.ru_RU" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.Locale">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">Locale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#Locale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.Locale" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Locale info.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>code: code of a locale in an ISO format, such as ru_RU, en_US and so on
+country: a string representing a country name</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.Locale.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lib.models.Locale.code" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.Locale.country">
+<span class="sig-name descname"><span class="pre">country</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lib.models.Locale.country" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.LocationDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">LocationDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.LocationTypeEnum" title="lib.models.LocationTypeEnum"><span class="pre">LocationTypeEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#LocationDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.LocationDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Location info.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id: if of the location
+name: name of the location
+type: type of the location
+coordinates: coordinates that correspond to the location</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationDataclass.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></em><a class="headerlink" href="#lib.models.LocationDataclass.coordinates" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationDataclass.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.models.LocationDataclass.id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationDataclass.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lib.models.LocationDataclass.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationDataclass.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.LocationTypeEnum" title="lib.models.LocationTypeEnum"><span class="pre">LocationTypeEnum</span></a></em><a class="headerlink" href="#lib.models.LocationDataclass.type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">LocationTypeEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#LocationTypeEnum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.LocationTypeEnum" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Type of a location.</p>
+<p>Represents a hotels’ types of locations that could be found in search
+locations method.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum.airport">
+<span class="sig-name descname"><span class="pre">airport</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AIRPORT'</span></em><a class="headerlink" href="#lib.models.LocationTypeEnum.airport" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum.city">
+<span class="sig-name descname"><span class="pre">city</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CITY'</span></em><a class="headerlink" href="#lib.models.LocationTypeEnum.city" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum.hotel">
+<span class="sig-name descname"><span class="pre">hotel</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HOTEL'</span></em><a class="headerlink" href="#lib.models.LocationTypeEnum.hotel" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum.multiregion">
+<span class="sig-name descname"><span class="pre">multiregion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MULTIREGION'</span></em><a class="headerlink" href="#lib.models.LocationTypeEnum.multiregion" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum.neighborhood">
+<span class="sig-name descname"><span class="pre">neighborhood</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NEIGHBORHOOD'</span></em><a class="headerlink" href="#lib.models.LocationTypeEnum.neighborhood" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.LocationTypeEnum.poi">
+<span class="sig-name descname"><span class="pre">poi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'POI'</span></em><a class="headerlink" href="#lib.models.LocationTypeEnum.poi" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.PriceDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">PriceDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.EnumCurrency" title="lib.models.EnumCurrency"><span class="pre">EnumCurrency</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#PriceDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.PriceDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Information about a price.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>price: a decimal value representing a value of the price
+currency: a selected currency from the enumeration that is used to represent a currency</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PriceDataclass.currency">
+<span class="sig-name descname"><span class="pre">currency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.EnumCurrency" title="lib.models.EnumCurrency"><span class="pre">EnumCurrency</span></a></em><a class="headerlink" href="#lib.models.PriceDataclass.currency" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PriceDataclass.price">
+<span class="sig-name descname"><span class="pre">price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Decimal</span></em><a class="headerlink" href="#lib.models.PriceDataclass.price" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.PriceFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">PriceFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#PriceFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.PriceFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lib.models.SearchFilter" title="lib.models.SearchFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SearchFilter</span></code></a></p>
+<p>Price search filter.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PriceFilter.max_price">
+<span class="sig-name descname"><span class="pre">max_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.models.PriceFilter.max_price" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PriceFilter.min_price">
+<span class="sig-name descname"><span class="pre">min_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.models.PriceFilter.min_price" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">PropertyDataclass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.PriceDataclass" title="lib.models.PriceDataclass"><span class="pre">PriceDataclass</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_from_downtown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.DistanceDataclass" title="lib.models.DistanceDataclass"><span class="pre">DistanceDataclass</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">images_links</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/models.html#PropertyDataclass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.PropertyDataclass" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Property information.</p>
+<p>A dataclass that represents the whole information about a property.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id: unique identifier of the property
+name: a string represeting a name of the property
+price: a dataclass that has information about the price of the property
+distance_from_downtown: a distance dataclass that has information about
+the distance from the downtown to the property
+coordinates: a dataclass that represents coordinates of the property</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.address">
+<span class="sig-name descname"><span class="pre">address</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lib.models.PropertyDataclass.address" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.CoordinatesDataclass" title="lib.models.CoordinatesDataclass"><span class="pre">CoordinatesDataclass</span></a></em><a class="headerlink" href="#lib.models.PropertyDataclass.coordinates" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.distance_from_downtown">
+<span class="sig-name descname"><span class="pre">distance_from_downtown</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.DistanceDataclass" title="lib.models.DistanceDataclass"><span class="pre">DistanceDataclass</span></a></em><a class="headerlink" href="#lib.models.PropertyDataclass.distance_from_downtown" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#lib.models.PropertyDataclass.id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.images_links">
+<span class="sig-name descname"><span class="pre">images_links</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lib.models.PropertyDataclass.images_links" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lib.models.PropertyDataclass.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.models.PropertyDataclass.price">
+<span class="sig-name descname"><span class="pre">price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lib.models.PriceDataclass" title="lib.models.PriceDataclass"><span class="pre">PriceDataclass</span></a></em><a class="headerlink" href="#lib.models.PropertyDataclass.price" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.models.SearchFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.models.</span></span><span class="sig-name descname"><span class="pre">SearchFilter</span></span><a class="reference internal" href="_modules/lib/models.html#SearchFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lib.models.SearchFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Search filter.</p>
+</dd></dl>
+
+</section>
+<section id="module-lib">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lib" title="Permalink to this heading">#</a></h2>
+<p>A package containing functions and classes that provide info to be used in telegram bot.</p>
+<p>Basically its an ‘implementation’ layer as well as some generic layers to be
+be used externally in services.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>as long as it’s an implementation layer, the end application should barely
+rely on the API the lib provides(could only be generic things) and implement
+its own adapters for the library, so that the end application could be
+easily separable and new functionality could be added more independently
+in library and vice versa</p>
+</dd>
+</dl>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="main.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">main module</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="exceptions.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">exceptions module</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Ostap Sukhovey &lt;postrelovvv@mail.ru&gt;
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">lib package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-lib.exceptions">lib.exceptions module</a><ul>
+<li><a class="reference internal" href="#lib.exceptions.AmbigousCityException"><code class="docutils literal notranslate"><span class="pre">AmbigousCityException</span></code></a></li>
+<li><a class="reference internal" href="#lib.exceptions.CountryNotSupported"><code class="docutils literal notranslate"><span class="pre">CountryNotSupported</span></code></a></li>
+<li><a class="reference internal" href="#lib.exceptions.HotelsAPIException"><code class="docutils literal notranslate"><span class="pre">HotelsAPIException</span></code></a></li>
+<li><a class="reference internal" href="#lib.exceptions.RapidAPIException"><code class="docutils literal notranslate"><span class="pre">RapidAPIException</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lib.geocoding">lib.geocoding module</a><ul>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingAPI"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI</span></code></a><ul>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingAPI.base_url"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.base_url</span></code></a></li>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingAPI.forward_geocoding"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.forward_geocoding()</span></code></a></li>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingAPI.host"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.host</span></code></a></li>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingAPI.locale"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.locale</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingLocationDataclass"><code class="docutils literal notranslate"><span class="pre">GeocodingLocationDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.geocoding.GeocodingLocationDataclass.importance"><code class="docutils literal notranslate"><span class="pre">GeocodingLocationDataclass.importance</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lib.hotels">lib.hotels module</a><ul>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsRating"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsRating.good"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating.good</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsRating.very_good"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating.very_good</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsRating.wonderful"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating.wonderful</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort.distance"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.distance</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort.price_asc"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.price_asc</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort.price_relevant"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.price_relevant</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort.recommended"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.recommended</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort.review"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.review</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.EnumHotelsSort.stars"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.stars</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI"><code class="docutils literal notranslate"><span class="pre">HotelsAPI</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.base_url"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.base_url</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.currency"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.currency</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.get_meta_data"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.get_meta_data()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.host"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.host</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.locale"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.locale</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.search_locations"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.search_locations()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.search_properties"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.search_properties()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsAPI.update_property_with_info"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.update_property_with_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCheckpoint"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsCheckpoint.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.build_query_dict()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCheckpoint.day"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.day</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCheckpoint.from_datetime"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.from_datetime()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCheckpoint.month"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.month</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCheckpoint.year"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.year</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCountryInfoDataclass"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsCountryInfoDataclass.code"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.code</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCountryInfoDataclass.eapid"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.eapid</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCountryInfoDataclass.site_id"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.site_id</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsCountryInfoDataclass.tpid"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.tpid</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestination"><code class="docutils literal notranslate"><span class="pre">HotelsDestination</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationCoordinates"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationCoordinates</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationCoordinates.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationCoordinates.build_query_dict()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationCoordinates.coordinates"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationCoordinates.coordinates</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationRegionID"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationRegionID.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID.build_query_dict()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationRegionID.from_location_dataclass"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID.from_location_dataclass()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsDestinationRegionID.id"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID.id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsFilter"><code class="docutils literal notranslate"><span class="pre">HotelsFilter</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPriceFilter"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsPriceFilter.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.build_query_dict()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPriceFilter.from_generic_price_filter"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.from_generic_price_filter()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPriceFilter.max_price"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.max_price</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPriceFilter.min_price"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.min_price</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.build_query_dict()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.check_in"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.check_in</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.check_out"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.check_out</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.currency"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.currency</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.destination"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.destination</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.filters"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.filters</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.locale"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.locale</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.result_limit"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.result_limit</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.result_offset"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.result_offset</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.rooms"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.rooms</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsPropertySearchDataclass.sort"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.sort</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsRatingFilter"><code class="docutils literal notranslate"><span class="pre">HotelsRatingFilter</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsRatingFilter.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsRatingFilter.build_query_dict()</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsRatingFilter.rating"><code class="docutils literal notranslate"><span class="pre">HotelsRatingFilter.rating</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.HotelsRooms"><code class="docutils literal notranslate"><span class="pre">HotelsRooms</span></code></a><ul>
+<li><a class="reference internal" href="#lib.hotels.HotelsRooms.adults"><code class="docutils literal notranslate"><span class="pre">HotelsRooms.adults</span></code></a></li>
+<li><a class="reference internal" href="#lib.hotels.HotelsRooms.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsRooms.build_query_dict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.hotels.generic_search_filter_adapter"><code class="docutils literal notranslate"><span class="pre">generic_search_filter_adapter()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lib.models">lib.models module</a><ul>
+<li><a class="reference internal" href="#lib.models.CityLocationDataclass"><code class="docutils literal notranslate"><span class="pre">CityLocationDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.CityLocationDataclass.country"><code class="docutils literal notranslate"><span class="pre">CityLocationDataclass.country</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.CoordinatesDataclass"><code class="docutils literal notranslate"><span class="pre">CoordinatesDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.CoordinatesDataclass.lat"><code class="docutils literal notranslate"><span class="pre">CoordinatesDataclass.lat</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.CoordinatesDataclass.long"><code class="docutils literal notranslate"><span class="pre">CoordinatesDataclass.long</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.DistanceDataclass"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.DistanceDataclass.distance"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass.distance</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.DistanceDataclass.get_kilometers"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass.get_kilometers()</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.DistanceDataclass.unit"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass.unit</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.EnumCurrency"><code class="docutils literal notranslate"><span class="pre">EnumCurrency</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.EnumCurrency.RUB"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.RUB</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.EnumCurrency.USD"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.USD</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.EnumCurrency.get_code"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.get_code()</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.EnumCurrency.get_name"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.get_name()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.EnumDistanceUnit"><code class="docutils literal notranslate"><span class="pre">EnumDistanceUnit</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.EnumDistanceUnit.Kilometer"><code class="docutils literal notranslate"><span class="pre">EnumDistanceUnit.Kilometer</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.EnumDistanceUnit.Mile"><code class="docutils literal notranslate"><span class="pre">EnumDistanceUnit.Mile</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.EnumLocale"><code class="docutils literal notranslate"><span class="pre">EnumLocale</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.EnumLocale.en_GB"><code class="docutils literal notranslate"><span class="pre">EnumLocale.en_GB</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.EnumLocale.get_code"><code class="docutils literal notranslate"><span class="pre">EnumLocale.get_code()</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.EnumLocale.ru_RU"><code class="docutils literal notranslate"><span class="pre">EnumLocale.ru_RU</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.Locale"><code class="docutils literal notranslate"><span class="pre">Locale</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.Locale.code"><code class="docutils literal notranslate"><span class="pre">Locale.code</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.Locale.country"><code class="docutils literal notranslate"><span class="pre">Locale.country</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.LocationDataclass"><code class="docutils literal notranslate"><span class="pre">LocationDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.LocationDataclass.coordinates"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.coordinates</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationDataclass.id"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.id</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationDataclass.name"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.name</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationDataclass.type"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum.airport"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.airport</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum.city"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.city</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum.hotel"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.hotel</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum.multiregion"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.multiregion</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum.neighborhood"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.neighborhood</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.LocationTypeEnum.poi"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.poi</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.PriceDataclass"><code class="docutils literal notranslate"><span class="pre">PriceDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.PriceDataclass.currency"><code class="docutils literal notranslate"><span class="pre">PriceDataclass.currency</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PriceDataclass.price"><code class="docutils literal notranslate"><span class="pre">PriceDataclass.price</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.PriceFilter"><code class="docutils literal notranslate"><span class="pre">PriceFilter</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.PriceFilter.max_price"><code class="docutils literal notranslate"><span class="pre">PriceFilter.max_price</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PriceFilter.min_price"><code class="docutils literal notranslate"><span class="pre">PriceFilter.min_price</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass</span></code></a><ul>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.address"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.address</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.coordinates"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.coordinates</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.distance_from_downtown"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.distance_from_downtown</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.id"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.id</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.images_links"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.images_links</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.name"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.name</span></code></a></li>
+<li><a class="reference internal" href="#lib.models.PropertyDataclass.price"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.price</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lib.models.SearchFilter"><code class="docutils literal notranslate"><span class="pre">SearchFilter</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lib">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

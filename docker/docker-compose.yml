@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+
+  bot:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    image: hotels-telegram-bot:latest
+    entrypoint: bash ./entrypoint.sh
+    env_file:
+      - ../.env
+

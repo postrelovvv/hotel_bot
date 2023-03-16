@@ -1,0 +1,555 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="config module" href="config.html" /><link rel="prev" title="Welcome to Hotels Telegram Bot’s documentation!" href="index.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+        <title>ostap-telegram-bot - Hotels Telegram Bot 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Hotels Telegram Bot 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Hotels Telegram Bot 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">ostap-telegram-bot</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html">consts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html">enums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html">lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messages.html">messages module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">services module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validators.html">validators module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="ostap-telegram-bot">
+<h1>ostap-telegram-bot<a class="headerlink" href="#ostap-telegram-bot" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consts.html">consts module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">enums module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#enums.DealsCommandTypeEnum"><code class="docutils literal notranslate"><span class="pre">DealsCommandTypeEnum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.DealsCommandTypeEnum.as_commands_list"><code class="docutils literal notranslate"><span class="pre">DealsCommandTypeEnum.as_commands_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.DealsCommandTypeEnum.best_deal"><code class="docutils literal notranslate"><span class="pre">DealsCommandTypeEnum.best_deal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.DealsCommandTypeEnum.high_price"><code class="docutils literal notranslate"><span class="pre">DealsCommandTypeEnum.high_price</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.DealsCommandTypeEnum.low_price"><code class="docutils literal notranslate"><span class="pre">DealsCommandTypeEnum.low_price</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#enums.HotelsSorterFunctionsEnum"><code class="docutils literal notranslate"><span class="pre">HotelsSorterFunctionsEnum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.HotelsSorterFunctionsEnum.best_deal_sorted"><code class="docutils literal notranslate"><span class="pre">HotelsSorterFunctionsEnum.best_deal_sorted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.HotelsSorterFunctionsEnum.from_deals_command_type"><code class="docutils literal notranslate"><span class="pre">HotelsSorterFunctionsEnum.from_deals_command_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.HotelsSorterFunctionsEnum.high_price_sorted"><code class="docutils literal notranslate"><span class="pre">HotelsSorterFunctionsEnum.high_price_sorted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.HotelsSorterFunctionsEnum.low_price_sorted"><code class="docutils literal notranslate"><span class="pre">HotelsSorterFunctionsEnum.low_price_sorted</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#enums.StatesEnum"><code class="docutils literal notranslate"><span class="pre">StatesEnum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.CHECKIN"><code class="docutils literal notranslate"><span class="pre">StatesEnum.CHECKIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.CHECKOUT"><code class="docutils literal notranslate"><span class="pre">StatesEnum.CHECKOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.HOTELS_COUNT"><code class="docutils literal notranslate"><span class="pre">StatesEnum.HOTELS_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.LOAD_PHOTOS"><code class="docutils literal notranslate"><span class="pre">StatesEnum.LOAD_PHOTOS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.LOCATION"><code class="docutils literal notranslate"><span class="pre">StatesEnum.LOCATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.MAX_DISTANCE_DOWNTOWN"><code class="docutils literal notranslate"><span class="pre">StatesEnum.MAX_DISTANCE_DOWNTOWN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#enums.StatesEnum.PRICE_RANGE"><code class="docutils literal notranslate"><span class="pre">StatesEnum.PRICE_RANGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">exceptions module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.AmbigousCityException"><code class="docutils literal notranslate"><span class="pre">AmbigousCityException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.AmbigousCityException.message"><code class="docutils literal notranslate"><span class="pre">AmbigousCityException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.BotException"><code class="docutils literal notranslate"><span class="pre">BotException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.BotValidationException"><code class="docutils literal notranslate"><span class="pre">BotValidationException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.CityCountryNotSupportedException"><code class="docutils literal notranslate"><span class="pre">CityCountryNotSupportedException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.CityCountryNotSupportedException.message"><code class="docutils literal notranslate"><span class="pre">CityCountryNotSupportedException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.CityNotFoundException"><code class="docutils literal notranslate"><span class="pre">CityNotFoundException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.CityNotFoundException.message"><code class="docutils literal notranslate"><span class="pre">CityNotFoundException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.EndDateLessThanStartDateException"><code class="docutils literal notranslate"><span class="pre">EndDateLessThanStartDateException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.EndDateLessThanStartDateException.message"><code class="docutils literal notranslate"><span class="pre">EndDateLessThanStartDateException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.NotNumericValueException"><code class="docutils literal notranslate"><span class="pre">NotNumericValueException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.NotNumericValueException.message"><code class="docutils literal notranslate"><span class="pre">NotNumericValueException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.NotZeroValueException"><code class="docutils literal notranslate"><span class="pre">NotZeroValueException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.NotZeroValueException.message"><code class="docutils literal notranslate"><span class="pre">NotZeroValueException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.PastDateProvidedException"><code class="docutils literal notranslate"><span class="pre">PastDateProvidedException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.PastDateProvidedException.message"><code class="docutils literal notranslate"><span class="pre">PastDateProvidedException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.PriceRangeFirstIsBiggerThanSecond"><code class="docutils literal notranslate"><span class="pre">PriceRangeFirstIsBiggerThanSecond</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.PriceRangeFirstIsBiggerThanSecond.message"><code class="docutils literal notranslate"><span class="pre">PriceRangeFirstIsBiggerThanSecond.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.WrongBooleanMessageFormatException"><code class="docutils literal notranslate"><span class="pre">WrongBooleanMessageFormatException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.WrongBooleanMessageFormatException.message"><code class="docutils literal notranslate"><span class="pre">WrongBooleanMessageFormatException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.WrongDateFormatException"><code class="docutils literal notranslate"><span class="pre">WrongDateFormatException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.WrongDateFormatException.message"><code class="docutils literal notranslate"><span class="pre">WrongDateFormatException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.WrongDateProvidedException"><code class="docutils literal notranslate"><span class="pre">WrongDateProvidedException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.WrongPriceRangeFormatException"><code class="docutils literal notranslate"><span class="pre">WrongPriceRangeFormatException</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.WrongPriceRangeFormatException.message"><code class="docutils literal notranslate"><span class="pre">WrongPriceRangeFormatException.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#exceptions.WrongTextMessageFormatException"><code class="docutils literal notranslate"><span class="pre">WrongTextMessageFormatException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">lib package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#module-lib.exceptions">lib.exceptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.exceptions.AmbigousCityException"><code class="docutils literal notranslate"><span class="pre">AmbigousCityException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.exceptions.CountryNotSupported"><code class="docutils literal notranslate"><span class="pre">CountryNotSupported</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.exceptions.HotelsAPIException"><code class="docutils literal notranslate"><span class="pre">HotelsAPIException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.exceptions.RapidAPIException"><code class="docutils literal notranslate"><span class="pre">RapidAPIException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#module-lib.geocoding">lib.geocoding module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingAPI"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingAPI.base_url"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.base_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingAPI.forward_geocoding"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.forward_geocoding()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingAPI.host"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.host</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingAPI.locale"><code class="docutils literal notranslate"><span class="pre">GeocodingAPI.locale</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingLocationDataclass"><code class="docutils literal notranslate"><span class="pre">GeocodingLocationDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.geocoding.GeocodingLocationDataclass.importance"><code class="docutils literal notranslate"><span class="pre">GeocodingLocationDataclass.importance</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#module-lib.hotels">lib.hotels module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsRating"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsRating.good"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating.good</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsRating.very_good"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating.very_good</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsRating.wonderful"><code class="docutils literal notranslate"><span class="pre">EnumHotelsRating.wonderful</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort.distance"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.distance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort.price_asc"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.price_asc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort.price_relevant"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.price_relevant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort.recommended"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.recommended</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort.review"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.review</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.EnumHotelsSort.stars"><code class="docutils literal notranslate"><span class="pre">EnumHotelsSort.stars</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI"><code class="docutils literal notranslate"><span class="pre">HotelsAPI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.base_url"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.base_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.currency"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.currency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.get_meta_data"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.get_meta_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.host"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.host</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.locale"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.locale</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.search_locations"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.search_locations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.search_properties"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.search_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsAPI.update_property_with_info"><code class="docutils literal notranslate"><span class="pre">HotelsAPI.update_property_with_info()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsCheckpoint"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCheckpoint.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.build_query_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCheckpoint.day"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.day</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCheckpoint.from_datetime"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.from_datetime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCheckpoint.month"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.month</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCheckpoint.year"><code class="docutils literal notranslate"><span class="pre">HotelsCheckpoint.year</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsCountryInfoDataclass"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCountryInfoDataclass.code"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCountryInfoDataclass.eapid"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.eapid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCountryInfoDataclass.site_id"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.site_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsCountryInfoDataclass.tpid"><code class="docutils literal notranslate"><span class="pre">HotelsCountryInfoDataclass.tpid</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestination"><code class="docutils literal notranslate"><span class="pre">HotelsDestination</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationCoordinates"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationCoordinates</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationCoordinates.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationCoordinates.build_query_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationCoordinates.coordinates"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationCoordinates.coordinates</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationRegionID"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationRegionID.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID.build_query_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationRegionID.from_location_dataclass"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID.from_location_dataclass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsDestinationRegionID.id"><code class="docutils literal notranslate"><span class="pre">HotelsDestinationRegionID.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsFilter"><code class="docutils literal notranslate"><span class="pre">HotelsFilter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsPriceFilter"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPriceFilter.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.build_query_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPriceFilter.from_generic_price_filter"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.from_generic_price_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPriceFilter.max_price"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.max_price</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPriceFilter.min_price"><code class="docutils literal notranslate"><span class="pre">HotelsPriceFilter.min_price</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.build_query_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.check_in"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.check_in</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.check_out"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.check_out</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.currency"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.currency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.destination"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.destination</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.filters"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.filters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.locale"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.locale</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.result_limit"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.result_limit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.result_offset"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.result_offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.rooms"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.rooms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsPropertySearchDataclass.sort"><code class="docutils literal notranslate"><span class="pre">HotelsPropertySearchDataclass.sort</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsRatingFilter"><code class="docutils literal notranslate"><span class="pre">HotelsRatingFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsRatingFilter.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsRatingFilter.build_query_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsRatingFilter.rating"><code class="docutils literal notranslate"><span class="pre">HotelsRatingFilter.rating</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.HotelsRooms"><code class="docutils literal notranslate"><span class="pre">HotelsRooms</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsRooms.adults"><code class="docutils literal notranslate"><span class="pre">HotelsRooms.adults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.hotels.HotelsRooms.build_query_dict"><code class="docutils literal notranslate"><span class="pre">HotelsRooms.build_query_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.hotels.generic_search_filter_adapter"><code class="docutils literal notranslate"><span class="pre">generic_search_filter_adapter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#module-lib.models">lib.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.CityLocationDataclass"><code class="docutils literal notranslate"><span class="pre">CityLocationDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.CityLocationDataclass.country"><code class="docutils literal notranslate"><span class="pre">CityLocationDataclass.country</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.CoordinatesDataclass"><code class="docutils literal notranslate"><span class="pre">CoordinatesDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.CoordinatesDataclass.lat"><code class="docutils literal notranslate"><span class="pre">CoordinatesDataclass.lat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.CoordinatesDataclass.long"><code class="docutils literal notranslate"><span class="pre">CoordinatesDataclass.long</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.DistanceDataclass"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.DistanceDataclass.distance"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass.distance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.DistanceDataclass.get_kilometers"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass.get_kilometers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.DistanceDataclass.unit"><code class="docutils literal notranslate"><span class="pre">DistanceDataclass.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.EnumCurrency"><code class="docutils literal notranslate"><span class="pre">EnumCurrency</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumCurrency.RUB"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.RUB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumCurrency.USD"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.USD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumCurrency.get_code"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.get_code()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumCurrency.get_name"><code class="docutils literal notranslate"><span class="pre">EnumCurrency.get_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.EnumDistanceUnit"><code class="docutils literal notranslate"><span class="pre">EnumDistanceUnit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumDistanceUnit.Kilometer"><code class="docutils literal notranslate"><span class="pre">EnumDistanceUnit.Kilometer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumDistanceUnit.Mile"><code class="docutils literal notranslate"><span class="pre">EnumDistanceUnit.Mile</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.EnumLocale"><code class="docutils literal notranslate"><span class="pre">EnumLocale</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumLocale.en_GB"><code class="docutils literal notranslate"><span class="pre">EnumLocale.en_GB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumLocale.get_code"><code class="docutils literal notranslate"><span class="pre">EnumLocale.get_code()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.EnumLocale.ru_RU"><code class="docutils literal notranslate"><span class="pre">EnumLocale.ru_RU</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.Locale"><code class="docutils literal notranslate"><span class="pre">Locale</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.Locale.code"><code class="docutils literal notranslate"><span class="pre">Locale.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.Locale.country"><code class="docutils literal notranslate"><span class="pre">Locale.country</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.LocationDataclass"><code class="docutils literal notranslate"><span class="pre">LocationDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationDataclass.coordinates"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.coordinates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationDataclass.id"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationDataclass.name"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationDataclass.type"><code class="docutils literal notranslate"><span class="pre">LocationDataclass.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum.airport"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.airport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum.city"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.city</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum.hotel"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.hotel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum.multiregion"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.multiregion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum.neighborhood"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.neighborhood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.LocationTypeEnum.poi"><code class="docutils literal notranslate"><span class="pre">LocationTypeEnum.poi</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.PriceDataclass"><code class="docutils literal notranslate"><span class="pre">PriceDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PriceDataclass.currency"><code class="docutils literal notranslate"><span class="pre">PriceDataclass.currency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PriceDataclass.price"><code class="docutils literal notranslate"><span class="pre">PriceDataclass.price</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.PriceFilter"><code class="docutils literal notranslate"><span class="pre">PriceFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PriceFilter.max_price"><code class="docutils literal notranslate"><span class="pre">PriceFilter.max_price</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PriceFilter.min_price"><code class="docutils literal notranslate"><span class="pre">PriceFilter.min_price</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.address"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.coordinates"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.coordinates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.distance_from_downtown"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.distance_from_downtown</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.id"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.images_links"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.images_links</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.name"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lib.html#lib.models.PropertyDataclass.price"><code class="docutils literal notranslate"><span class="pre">PropertyDataclass.price</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lib.html#lib.models.SearchFilter"><code class="docutils literal notranslate"><span class="pre">SearchFilter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#module-lib">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.deals_handler"><code class="docutils literal notranslate"><span class="pre">deals_handler()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.error_handler"><code class="docutils literal notranslate"><span class="pre">error_handler()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_checkin"><code class="docutils literal notranslate"><span class="pre">handle_checkin()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_checkout"><code class="docutils literal notranslate"><span class="pre">handle_checkout()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_distance_downtown"><code class="docutils literal notranslate"><span class="pre">handle_distance_downtown()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_hotels_count"><code class="docutils literal notranslate"><span class="pre">handle_hotels_count()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_load_photos"><code class="docutils literal notranslate"><span class="pre">handle_load_photos()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_location"><code class="docutils literal notranslate"><span class="pre">handle_location()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.handle_price_range"><code class="docutils literal notranslate"><span class="pre">handle_price_range()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">messages module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">services module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validators.html">validators module</a></li>
+</ul>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="config.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">config module</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Ostap Sukhovey &lt;postrelovvv@mail.ru&gt;
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

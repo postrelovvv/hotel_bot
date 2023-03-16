@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>services &mdash; Hotels Telegram Bot 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Hotels Telegram Bot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Hotels Telegram Bot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">services</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for services</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span> <span class="nn">pycountry</span>
+
+<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">messages</span>
+<span class="kn">import</span> <span class="nn">exceptions</span>
+
+<span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">hotels</span><span class="p">,</span> <span class="n">geocoding</span><span class="p">,</span> <span class="n">exceptions</span> <span class="k">as</span> <span class="n">lib_exceptions</span>
+
+
+<span class="n">HOTEL_CLIENT</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">HotelsAPI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">RAPIDAPI_TOKEN</span><span class="p">)</span>
+<span class="n">GEOCODING_CLIENT</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">GeocodingAPI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">RAPIDAPI_TOKEN</span><span class="p">)</span>
+
+<span class="n">META_DATA</span> <span class="o">=</span> <span class="n">HOTEL_CLIENT</span><span class="o">.</span><span class="n">get_meta_data</span><span class="p">()</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;services&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="search_city"><a class="viewcode-back" href="../services.html#services.search_city">[docs]</a><span class="k">def</span> <span class="nf">search_city</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">models</span><span class="o">.</span><span class="n">CityLocationDataclass</span><span class="p">:</span>
+    <span class="n">cities_alike</span> <span class="o">=</span> <span class="n">GEOCODING_CLIENT</span><span class="o">.</span><span class="n">forward_geocoding</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+    <span class="n">cities_alike</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cities_alike</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">loc</span><span class="p">:</span> <span class="n">loc</span><span class="o">.</span><span class="n">importance</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">found_city</span> <span class="o">=</span> <span class="n">cities_alike</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">CityNotFoundException</span> <span class="kn">from</span> <span class="nn">e</span>
+    <span class="k">return</span> <span class="n">found_city</span></div>
+
+
+<div class="viewcode-block" id="search_hotels_city"><a class="viewcode-back" href="../services.html#services.search_hotels_city">[docs]</a><span class="k">def</span> <span class="nf">search_hotels_city</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">:</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">HOTEL_CLIENT</span><span class="o">.</span><span class="n">search_locations</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">loc</span><span class="p">:</span> <span class="n">loc</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationTypeEnum</span><span class="o">.</span><span class="n">city</span><span class="p">,</span> <span class="n">locations</span><span class="p">))</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">locations</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">location</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">city</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">location</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">AmbigousCityException</span>
+
+    <span class="k">return</span> <span class="n">locations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="search_hotels"><a class="viewcode-back" href="../services.html#services.search_hotels">[docs]</a><span class="k">def</span> <span class="nf">search_hotels</span><span class="p">(</span>
+        <span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">hotels_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
+        <span class="n">photos_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">check_in</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+        <span class="n">check_out</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+        <span class="n">filters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">SearchFilter</span><span class="p">],</span>
+        <span class="n">max_distance_downtown</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+
+        <span class="n">rooms</span><span class="o">=</span><span class="n">hotels</span><span class="o">.</span><span class="n">HotelsRooms</span><span class="p">(</span><span class="n">adults</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">currency</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">EnumCurrency</span><span class="o">.</span><span class="n">USD</span><span class="p">,</span>
+        <span class="n">locale</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">EnumLocale</span><span class="o">.</span><span class="n">en_GB</span><span class="p">,</span>
+        <span class="n">sort</span><span class="o">=</span><span class="n">hotels</span><span class="o">.</span><span class="n">EnumHotelsSort</span><span class="o">.</span><span class="n">price_asc</span><span class="p">,</span>
+        <span class="n">sort_function</span><span class="o">=</span><span class="nb">sorted</span><span class="p">,</span>
+
+        <span class="n">result_offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">result_limit</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">]:</span>
+
+    <span class="n">destination</span> <span class="o">=</span> <span class="n">search_hotels_city</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+    <span class="n">destination</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">HotelsDestinationRegionID</span><span class="o">.</span><span class="n">from_location_dataclass</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+    <span class="n">check_in</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">HotelsCheckpoint</span><span class="o">.</span><span class="n">from_datetime</span><span class="p">(</span><span class="n">check_in</span><span class="p">)</span>
+    <span class="n">check_out</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">HotelsCheckpoint</span><span class="o">.</span><span class="n">from_datetime</span><span class="p">(</span><span class="n">check_out</span><span class="p">)</span>
+
+    <span class="n">filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">hotels</span><span class="o">.</span><span class="n">generic_search_filter_adapter</span><span class="p">(</span><span class="n">filter_</span><span class="p">)</span> <span class="k">for</span> <span class="n">filter_</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">]</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">HotelsPropertySearchDataclass</span><span class="p">(</span>
+            <span class="n">currency</span><span class="o">=</span><span class="n">currency</span><span class="p">,</span>
+            <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">,</span>
+            <span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
+            <span class="n">check_in</span><span class="o">=</span><span class="n">check_in</span><span class="p">,</span>
+            <span class="n">check_out</span><span class="o">=</span><span class="n">check_out</span><span class="p">,</span>
+            <span class="n">rooms</span><span class="o">=</span><span class="n">rooms</span><span class="p">,</span>
+            <span class="n">result_offset</span><span class="o">=</span><span class="n">result_offset</span><span class="p">,</span>
+            <span class="n">result_limit</span><span class="o">=</span><span class="n">result_limit</span><span class="p">,</span>
+            <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span>
+            <span class="p">)</span>
+ 
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">())</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">HOTEL_CLIENT</span><span class="o">.</span><span class="n">search_properties</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+    <span class="n">_filter_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">prop</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">distance_from_downtown</span><span class="o">.</span><span class="n">get_kilometers</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="n">max_distance_downtown</span>
+    
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">sort_function</span><span class="p">)</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">sort_function</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">_filter_lambda</span><span class="p">,</span> <span class="n">properties</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nb">property</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
+        <span class="nb">property</span> <span class="o">=</span> <span class="n">HOTEL_CLIENT</span><span class="o">.</span><span class="n">update_property_with_info</span><span class="p">(</span><span class="nb">property</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="nb">property</span>
+
+    <span class="k">return</span> <span class="n">properties</span></div>
+
+    
+    
+<div class="viewcode-block" id="build_message_from_property_dataclass"><a class="viewcode-back" href="../services.html#services.build_message_from_property_dataclass">[docs]</a><span class="k">def</span> <span class="nf">build_message_from_property_dataclass</span><span class="p">(</span><span class="n">prop</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="n">HOTEL_MESSAGE_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">hotel_name</span><span class="o">=</span><span class="n">prop</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> 
+            <span class="n">hotel_address</span><span class="o">=</span><span class="n">prop</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="n">hotel_distance_downtown</span><span class="o">=</span><span class="n">prop</span><span class="o">.</span><span class="n">distance_from_downtown</span><span class="p">,</span>
+            <span class="n">hotel_price</span><span class="o">=</span><span class="n">prop</span><span class="o">.</span><span class="n">price</span><span class="p">,</span>
+            <span class="n">hotel_link</span><span class="o">=</span><span class="s2">&quot;https://www.hotels.com/h</span><span class="si">{0}</span><span class="s2">.Hotel-Information&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="get_random_loading_message"><a class="viewcode-back" href="../services.html#services.get_random_loading_message">[docs]</a><span class="k">def</span> <span class="nf">get_random_loading_message</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">messages</span><span class="o">.</span><span class="n">LOADING_PROGRESS_MESSAGES</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ostap Sukhovey &lt;postrelovvv@mail.ru&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

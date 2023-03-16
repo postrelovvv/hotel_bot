@@ -1,0 +1,943 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+        <title>lib.hotels - Hotels Telegram Bot 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Hotels Telegram Bot 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Hotels Telegram Bot 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">ostap-telegram-bot</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../consts.html">consts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enums.html">enums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exceptions.html">exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lib.html">lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">messages module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services.html">services module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../validators.html">validators module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for lib.hotels</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module that provides a class and dataclasses to interact with Hotels.com API.</span>
+
+<span class="sd">It consists of a class and dataclasses used exclusively with interacting with</span>
+<span class="sd">the hotel.com api. A few utils functions that provide parsing routines of the</span>
+<span class="sd">responses of the api.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    from lib import hotels</span>
+<span class="sd">    hotels_client = HotelsAPI(api_key=&quot;RAPID_API_KEY&quot;)</span>
+<span class="sd">    locations: models.LocationDataclass</span>
+<span class="sd">    locations = hotels_client.search_locations(&quot;New York&quot;)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">ChainMap</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">lib</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">base</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_location_into_dataclass</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parses single entity from the list of entities returned from the API.&quot;&quot;&quot;</span>
+
+    <span class="n">id_</span> <span class="o">=</span> <span class="n">location</span><span class="p">[</span><span class="s1">&#39;gaiaId&#39;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">location</span><span class="p">[</span><span class="s1">&#39;regionNames&#39;</span><span class="p">][</span><span class="s1">&#39;primaryDisplayName&#39;</span><span class="p">]</span>
+    <span class="n">type_</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationTypeEnum</span><span class="p">(</span><span class="n">location</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">location</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="s1">&#39;lat&#39;</span><span class="p">])</span>
+    <span class="n">long</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">location</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="s1">&#39;long&#39;</span><span class="p">])</span>
+    
+    <span class="n">coordinates</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CoordinatesDataclass</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">lat</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="n">long</span><span class="p">)</span>
+    <span class="n">location_d</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">id_</span><span class="p">,</span> 
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+            <span class="n">coordinates</span><span class="o">=</span><span class="n">coordinates</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="n">type_</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">location_d</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_locations_response_into_dataclasses</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the list of entities returned from the API and parses each of those into a list&quot;&quot;&quot;</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;sr&#39;</span><span class="p">]</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">location_d</span> <span class="o">=</span> <span class="n">parse_location_into_dataclass</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">location_d</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+       
+
+<div class="viewcode-block" id="HotelsDestination"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsDestination">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsDestination</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A base dataclass to be used in search of a destination.&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="HotelsDestinationCoordinates"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsDestinationCoordinates">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsDestinationCoordinates</span><span class="p">(</span><span class="n">HotelsDestination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dataclass that provides a store for coordinates and function to build a query.</span>
+
+<span class="sd">    Mainly its supposed to be used with search_properties of HotelsAPI and that</span>
+<span class="sd">    should call build_query_dict to create an API specific dict to query it</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        coordinates: a coordinates dataclass that holds info about coordinates</span>
+<span class="sd">            to be used in search locations of the hotels api</span>
+<span class="sd">    </span>
+<span class="sd">    Note:</span>
+<span class="sd">        its worth noting that coordinates in the api are optional, they can&#39;t</span>
+<span class="sd">        be used to just substitute search by regionId(gaiaId of the city),</span>
+<span class="sd">        it could only be used in conjunction with regionId search to kind of</span>
+<span class="sd">        precise the coordinates of where you would like to query properties from</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coordinates</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">CoordinatesDataclass</span>
+
+<div class="viewcode-block" id="HotelsDestinationCoordinates.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsDestinationCoordinates.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a dict to be used in search for properties queries.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a dict containing two keys which represent coordinates of the</span>
+<span class="sd">            location to search properties around from</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;latitute&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> 
+                <span class="s2">&quot;longtitute&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">long</span>
+                <span class="p">}</span></div></div>
+
+<div class="viewcode-block" id="HotelsDestinationRegionID"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsDestinationRegionID">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsDestinationRegionID</span><span class="p">(</span><span class="n">HotelsDestination</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Id of the location to search properties from.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        id: an integer which is gaiaId returned from the search_locations API</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        required to be used in search_properties API query as long as its</span>
+<span class="sd">            mandatory in a api definition</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+
+<div class="viewcode-block" id="HotelsDestinationRegionID.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsDestinationRegionID.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a query dict to be used in an API call.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            returns a dict containing an id of the region to search for</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;regionId&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)}</span></div>
+
+<div class="viewcode-block" id="HotelsDestinationRegionID.from_location_dataclass"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsDestinationRegionID.from_location_dataclass">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_location_dataclass</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">location_d</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates an instance of the dataclass from a LocationDataclass.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            returns an instance of the dataclass from the LocationDataclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">location_d</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="HotelsCheckpoint"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsCheckpoint">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsCheckpoint</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Date of either a check in or check out to search hotels for.</span>
+
+<span class="sd">    Basically holds info about when the check in or check out dates could occur</span>
+<span class="sd">    from the customer perspective.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        day: an integer representing a day within a month 0-31</span>
+<span class="sd">        month: an integer representing a month of a year 1-12</span>
+<span class="sd">        year: an integer representing a year</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        values of a dataclass to be populated are not validated, means that it</span>
+<span class="sd">        just stores info, you have to validate info yourself before puting</span>
+<span class="sd">        it into the dataclass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">day</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">month</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">year</span><span class="p">:</span> <span class="nb">int</span>
+
+<div class="viewcode-block" id="HotelsCheckpoint.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsCheckpoint.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a query dict to be used in search of properties API query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a dict containing dataclass attributes as keys and values of those</span>
+<span class="sd">            in values</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            the return model is not strictly set, it will change on any new</span>
+<span class="sd">            attribute added to the dataclass. Make sure to maintain the current</span>
+<span class="sd">            protocol and convention of the attributes of this dataclass.</span>
+<span class="sd">            Otherwise you would get either an error from the API, or you would</span>
+<span class="sd">            get invalid responses from the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span></div>
+
+<div class="viewcode-block" id="HotelsCheckpoint.from_datetime"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsCheckpoint.from_datetime">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_datetime</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">datetime_</span><span class="p">:</span> <span class="n">datetime</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates an instance of the dataclass from datetime object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            datetime_: a datetime object that should hold info about a</span>
+<span class="sd">                day, month and a year</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            an instance of the dataclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+                <span class="n">day</span><span class="o">=</span><span class="n">datetime_</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> 
+                <span class="n">month</span><span class="o">=</span><span class="n">datetime_</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> 
+                <span class="n">year</span><span class="o">=</span><span class="n">datetime_</span><span class="o">.</span><span class="n">year</span>
+                <span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="HotelsRooms"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsRooms">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsRooms</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Count of rooms for adults and children.</span>
+
+<span class="sd">    For now it stores info about count of adults that are going into some hotel.</span>
+<span class="sd">    And is used when searching for properties to define how many humans would be</span>
+<span class="sd">    living in a property.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        adults: amount of adults that would be living in a property</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        its also possible to implement holding info about how many children</span>
+<span class="sd">        would be there.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+    <span class="n">adults</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1"># children could be implemented here as well</span>
+
+<div class="viewcode-block" id="HotelsRooms.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsRooms.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a dictionary to be used in searching for property.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a list of of human types and their amount that are going to live</span>
+<span class="sd">            in a property, for now only one element containing info about adults</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="EnumHotelsSort"><a class="viewcode-back" href="../../lib.html#lib.hotels.EnumHotelsSort">[docs]</a><span class="k">class</span> <span class="nc">EnumHotelsSort</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sorting options for the API.</span>
+
+<span class="sd">    Contain all the possible sorting options available through the API.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        price_asc: sorting by price ascending</span>
+<span class="sd">        price_relevant: sorting by price ascending(?) and platform recommendations</span>
+<span class="sd">        review: sort by by guest rating descending(?)</span>
+<span class="sd">        distance: sort by distance descending(?)</span>
+<span class="sd">        stars: sort by count of hotel stars descending(?)</span>
+<span class="sd">        recommended: sort by the recommendations of the platform</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        its unclear from the API definition either some sorting options</span>
+<span class="sd">        are ascending or descending, its worth a manual try to understand it</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">price_asc</span> <span class="o">=</span> <span class="s2">&quot;PRICE_LOW_TO_HIGH&quot;</span>
+    <span class="n">price_relevant</span> <span class="o">=</span> <span class="s2">&quot;PRICE_RELEVANT&quot;</span>
+    <span class="n">review</span> <span class="o">=</span> <span class="s2">&quot;REVIEW&quot;</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="s2">&quot;DISTANCE&quot;</span>
+    <span class="n">stars</span> <span class="o">=</span> <span class="s2">&quot;PROPERTY_CLASS&quot;</span>
+    <span class="n">recommended</span> <span class="o">=</span> <span class="s2">&quot;RECOMMENDED&quot;</span>
+
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a value selected attribute to be used in API sorting.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="HotelsFilter"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsFilter">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsFilter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filter to be used in searching for property&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="HotelsPriceFilter"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsPriceFilter">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsPriceFilter</span><span class="p">(</span><span class="n">HotelsFilter</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">PriceFilter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filter by price in the API.</span>
+
+<span class="sd">    Its derived from the base price filter and is meant to be used when filtering</span>
+<span class="sd">    out the price by the minimum and maximum range.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        max_price: holds info about a maximum price of the property(a hotel) to seek for</span>
+<span class="sd">        min_price: holds info about a minimum price of the property(a hotel) to seek for</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="HotelsPriceFilter.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsPriceFilter.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a query dict to be used in API search for properties call.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_price</span><span class="p">),</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_price</span><span class="p">)}}</span></div>
+
+<div class="viewcode-block" id="HotelsPriceFilter.from_generic_price_filter"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsPriceFilter.from_generic_price_filter">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_generic_price_filter</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filter_</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">PriceFilter</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates an instance of this dataclass from the generic price filter.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">filter_</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="generic_search_filter_adapter"><a class="viewcode-back" href="../../lib.html#lib.hotels.generic_search_filter_adapter">[docs]</a><span class="k">def</span> <span class="nf">generic_search_filter_adapter</span><span class="p">(</span><span class="n">filter_</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">SearchFilter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HotelsFilter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adapter/factory to create hotels specific filters from a base dataclasses.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        filter_: a base dataclass for a filter from a models module</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: if no adapters were found for the provided filter dataclass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filter_</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">PriceFilter</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">HotelsPriceFilter</span><span class="o">.</span><span class="n">from_generic_price_filter</span><span class="p">(</span><span class="n">filter_</span><span class="p">)</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> filter no adapter found&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filter_</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="EnumHotelsRating"><a class="viewcode-back" href="../../lib.html#lib.hotels.EnumHotelsRating">[docs]</a><span class="k">class</span> <span class="nc">EnumHotelsRating</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hotels guest rating as defined in the API definition.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        good: 7+ in the hotels.com filters</span>
+<span class="sd">        very_good: 8+ in the hotels.com filters</span>
+<span class="sd">        wonderful: 9+ in the hotels.com filters</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">good</span> <span class="o">=</span> <span class="mi">35</span>
+    <span class="n">very_good</span> <span class="o">=</span> <span class="mi">40</span>
+    <span class="n">wonderful</span> <span class="o">=</span> <span class="mi">45</span></div>
+
+
+<div class="viewcode-block" id="HotelsRatingFilter"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsRatingFilter">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsRatingFilter</span><span class="p">(</span><span class="n">HotelsFilter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hotels rating filter to be used in API query.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        rating: a rating from the defined API of the hotels.com</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rating</span><span class="p">:</span> <span class="n">EnumHotelsRating</span>
+
+
+<div class="viewcode-block" id="HotelsRatingFilter.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsRatingFilter.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a dict to be used in search for properties filters.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a dict containing a key guestRating and the respective rating value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;guestRating&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rating</span><span class="p">}</span></div></div>
+
+<div class="viewcode-block" id="HotelsCountryInfoDataclass"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsCountryInfoDataclass">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsCountryInfoDataclass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Information about a country.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        code: ISO country code (see IBM definition)</span>
+<span class="sd">        site_id: and internal hotels&#39; site_id</span>
+<span class="sd">        tpid: an internal id of the hotels</span>
+<span class="sd">        eapid: optional id that stores an internal id of hotels API</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        eapid is optional for a reason, some countries may not have it for</span>
+<span class="sd">        some reason, but it could be used when searching for the properties</span>
+<span class="sd">        and locations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">site_id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">tpid</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="n">eapid</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="HotelsPropertySearchDataclass"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsPropertySearchDataclass">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HotelsPropertySearchDataclass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Information about the search query for properties.</span>
+
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        currency: currency as a short code</span>
+<span class="sd">        locale: ISO locale. E.g: ru_RU, en_US, en_GB, ...</span>
+<span class="sd">        destination: info about a destination. Usually being a regionid</span>
+<span class="sd">        check_in: info about the desired time of a checkin into the hotel</span>
+<span class="sd">        check_out: info about a desired time of a checkout out of the hotel</span>
+<span class="sd">        rooms: rooms that are needed for specific-aged people as defined in HotelsRooms</span>
+<span class="sd">        filters: a list of hotels-specific filters to be used in a search query</span>
+<span class="sd">        sort: sort by chosen from the available sorting options from the Enum</span>
+<span class="sd">        result_offset: a result offset to start search from. Could be used for pagination purposes</span>
+<span class="sd">        result_limit: a limit how many results to get from the API</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">currency</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">EnumCurrency</span>
+    <span class="n">locale</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">EnumLocale</span>
+    <span class="n">destination</span><span class="p">:</span> <span class="n">HotelsDestination</span>
+    <span class="n">check_in</span><span class="p">:</span> <span class="n">HotelsCheckpoint</span>
+    <span class="n">check_out</span><span class="p">:</span> <span class="n">HotelsCheckpoint</span>
+    <span class="n">rooms</span><span class="p">:</span> <span class="n">HotelsRooms</span>
+    <span class="n">filters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">HotelsFilter</span><span class="p">]</span>
+    <span class="n">sort</span><span class="p">:</span> <span class="n">EnumHotelsSort</span>
+
+    <span class="n">result_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">result_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+
+<div class="viewcode-block" id="HotelsPropertySearchDataclass.build_query_dict"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsPropertySearchDataclass.build_query_dict">[docs]</a>    <span class="k">def</span> <span class="nf">build_query_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a query dict needed for the search for properties API.</span>
+
+<span class="sd">        Uses a utility function to generate a dict(JSON) query for the search</span>
+<span class="sd">        for properties api.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a dict that should be used for querying the API</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">build_payload_for_hotels_search</span><span class="p">(</span>
+                <span class="n">currency</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">currency</span><span class="p">,</span>
+                <span class="n">locale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">locale</span><span class="p">,</span>
+                <span class="n">destination</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span>
+                <span class="n">check_in</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">check_in</span><span class="p">,</span>
+                <span class="n">check_out</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">check_out</span><span class="p">,</span>
+                <span class="n">rooms</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rooms</span><span class="p">,</span>
+                <span class="n">filters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">,</span>
+                <span class="n">sort</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">,</span>
+                <span class="n">result_offset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">result_offset</span><span class="p">,</span>
+                <span class="n">result_limit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">result_limit</span>
+                <span class="p">)</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_parse_property_into_dataclass</span><span class="p">(</span><span class="n">prop</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Utility function to parse gotten property into the appropriate dataclass.&quot;&quot;&quot;</span>
+    <span class="n">id_</span> <span class="o">=</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+    <span class="n">currency</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">EnumCurrency</span><span class="p">,</span> 
+            <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">][</span><span class="s2">&quot;lead&quot;</span><span class="p">][</span><span class="s2">&quot;currencyInfo&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+    <span class="n">price_d</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PriceDataclass</span><span class="p">(</span>
+            <span class="n">price</span><span class="o">=</span><span class="n">prop</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">][</span><span class="s2">&quot;lead&quot;</span><span class="p">][</span><span class="s2">&quot;amount&quot;</span><span class="p">],</span>
+            <span class="n">currency</span><span class="o">=</span><span class="n">currency</span>
+            <span class="p">)</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;destinationInfo&quot;</span><span class="p">][</span><span class="s2">&quot;distanceFromDestination&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+    <span class="n">unit</span> <span class="o">=</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;destinationInfo&quot;</span><span class="p">][</span><span class="s2">&quot;distanceFromDestination&quot;</span><span class="p">][</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span>
+
+    <span class="n">distance_from_downtown_d</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DistanceDataclass</span><span class="p">(</span>
+            <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span> 
+            <span class="n">unit</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">EnumDistanceUnit</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+            <span class="p">)</span>
+    <span class="n">coordinates_d</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CoordinatesDataclass</span><span class="p">(</span>
+            <span class="n">lat</span><span class="o">=</span><span class="n">prop</span><span class="p">[</span><span class="s2">&quot;mapMarker&quot;</span><span class="p">][</span><span class="s2">&quot;latLong&quot;</span><span class="p">][</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span>
+            <span class="n">long</span><span class="o">=</span><span class="n">prop</span><span class="p">[</span><span class="s2">&quot;mapMarker&quot;</span><span class="p">][</span><span class="s2">&quot;latLong&quot;</span><span class="p">][</span><span class="s2">&quot;longitude&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+    <span class="n">property_d</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">id_</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+            <span class="n">price</span><span class="o">=</span><span class="n">price_d</span><span class="p">,</span> 
+            <span class="n">distance_from_downtown</span><span class="o">=</span><span class="n">distance_from_downtown_d</span><span class="p">,</span>
+            <span class="n">coordinates</span><span class="o">=</span><span class="n">coordinates_d</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">property_d</span>
+
+<span class="k">def</span> <span class="nf">_parse_properties_response_into_dataclasses</span><span class="p">(</span>
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Utility function to parse response of properties into the list of dataclasses.&quot;&quot;&quot;</span>
+        
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;propertySearch&#39;</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
+        
+        <span class="n">property_d</span> <span class="o">=</span> <span class="n">parse_property_into_dataclass</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">property_d</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="k">def</span> <span class="nf">_create_dataclass_from_country_info</span><span class="p">(</span>
+        <span class="n">country_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">info</span><span class="p">:</span> <span class="nb">dict</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HotelsCountryInfoDataclass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A utility function that creates a country dataclass.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        country_code: ISO country code such as AE, KZ, RU, US, ...</span>
+<span class="sd">        info: a dict containing api specific info</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">HotelsCountryInfoDataclass</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">country_code</span><span class="p">,</span> 
+            <span class="n">site_id</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;siteId&#39;</span><span class="p">],</span>
+            <span class="n">eapid</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EAPID&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="n">tpid</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;TPID&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_parse_countries_into_dataclasses</span><span class="p">(</span>
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HotelsCountryInfoDataclass</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A utility function that parses response into the dict of countries.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        response: a dict containing a response from a meta info API query.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a dict where the key is a country code in a ISO format and values as</span>
+<span class="sd">        a country info dataclass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">country_code</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">ret</span><span class="p">[</span><span class="n">country_code</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_dataclass_from_country_info</span><span class="p">(</span>
+                <span class="n">country_code</span><span class="p">,</span> 
+                <span class="n">info</span>
+                <span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+ 
+
+<span class="k">def</span> <span class="nf">_build_payload_for_hotels_search</span><span class="p">(</span>
+        <span class="n">currency</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">EnumCurrency</span><span class="p">,</span>
+        <span class="n">locale</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">EnumLocale</span><span class="p">,</span>
+        <span class="n">destination</span><span class="p">:</span> <span class="n">HotelsDestination</span><span class="p">,</span>
+        <span class="n">check_in</span><span class="p">:</span> <span class="n">HotelsCheckpoint</span><span class="p">,</span>
+        <span class="n">check_out</span><span class="p">:</span> <span class="n">HotelsCheckpoint</span><span class="p">,</span>
+        <span class="n">rooms</span><span class="p">:</span> <span class="n">HotelsRooms</span><span class="p">,</span>
+        <span class="n">result_offset</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">result_limit</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="n">EnumHotelsSort</span><span class="p">,</span>
+        <span class="n">filters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">HotelsFilter</span><span class="p">]</span>
+
+        <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A utility function that builds a dictionary to query properties search API.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        currency: a chosen currency as defined in models.EnumCurrency, basically</span>
+<span class="sd">        a USD, RUB, or as such</span>
+
+<span class="sd">        locale: a locale chosen from the models.EnumLocale, basically an ISO</span>
+<span class="sd">        formatted string such as ru_RU, en_US, en_GB and so on</span>
+
+<span class="sd">        destination: a destination chosen from the HotelsDestination enum,</span>
+<span class="sd">        almost always would be a region id destination as long as it&#39;s</span>
+<span class="sd">        mandatory by the API definition</span>
+
+<span class="sd">        check_in: a desired check-in date as a HotelsCheckpoint dataclass</span>
+<span class="sd">        check_out: a desired check-out date as a HotelsCheckpoint dataclass</span>
+<span class="sd">        rooms: information about the persons that are going to stay in the hotel,</span>
+<span class="sd">        mainly its just an amount of adults or children and their ages afaik</span>
+<span class="sd">        </span>
+<span class="sd">        result_offset: a result offset that would be used to query hotel from</span>
+<span class="sd">        result_limit: amount of results to get basically, a limit</span>
+<span class="sd">        sort: chosen sorting type as defined in the API, and selected from a EnumHotelSort</span>
+<span class="sd">        filters: list of HotelsFilter to be included in the search query</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a dict prepared to be used in search_properties gateway</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        the function uses ChainMap from collections, it could be misleading</span>
+<span class="sd">        but the thing that particularly here it does, is just basically</span>
+<span class="sd">        getting the built queries from the filters and putting them altogether</span>
+<span class="sd">        in a single dict.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">filter_</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">filter_</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">]</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;currency&quot;</span><span class="p">:</span> <span class="n">currency</span><span class="o">.</span><span class="n">get_code</span><span class="p">(),</span>
+            <span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="o">.</span><span class="n">get_code</span><span class="p">(),</span>
+            <span class="s2">&quot;destination&quot;</span><span class="p">:</span> <span class="n">destination</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">(),</span>
+            <span class="s2">&quot;checkInDate&quot;</span><span class="p">:</span> <span class="n">check_in</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">(),</span>
+            <span class="s2">&quot;checkOutDate&quot;</span><span class="p">:</span> <span class="n">check_out</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">(),</span>
+            <span class="s2">&quot;rooms&quot;</span><span class="p">:</span> <span class="n">rooms</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">(),</span>
+            <span class="s2">&quot;resultsStartingIndex&quot;</span><span class="p">:</span> <span class="n">result_offset</span><span class="p">,</span>
+            <span class="s2">&quot;resultsSize&quot;</span><span class="p">:</span> <span class="n">result_limit</span><span class="p">,</span>
+            <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">sort</span><span class="p">),</span>
+            <span class="s2">&quot;filters&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ChainMap</span><span class="p">(</span><span class="o">*</span><span class="n">filters</span><span class="p">))</span>
+            <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">payload</span>
+
+<span class="k">def</span> <span class="nf">_update_property_with_address</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Updates property address from the /details/ response from hotels api.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        updates the original property dataclass as an intended effect</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;propertyInfo&quot;</span><span class="p">][</span><span class="s2">&quot;summary&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;address&quot;</span><span class="p">][</span><span class="s2">&quot;addressLine&quot;</span><span class="p">]</span>
+    <span class="nb">property</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+    <span class="k">return</span> <span class="nb">property</span>
+
+
+<span class="k">def</span> <span class="nf">_update_property_with_images_links</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Updates property images links from the /details/ response from hotels api.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        updates the original property dataclass as an intended effect</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;propertyInfo&quot;</span><span class="p">][</span><span class="s2">&quot;propertyGallery&quot;</span><span class="p">][</span><span class="s2">&quot;images&quot;</span><span class="p">]</span>
+    <span class="nb">property</span><span class="o">.</span><span class="n">images_links</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+        <span class="nb">property</span><span class="o">.</span><span class="n">images_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">property</span>
+
+
+
+<span class="k">def</span> <span class="nf">_update_property_with_data</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Updates property with the /details/ data.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        updates the original property dataclass as an intended effect</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">update_property_with_address</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="nb">property</span><span class="p">)</span>
+    <span class="n">update_property_with_images_links</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="nb">property</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">property</span>
+
+
+<div class="viewcode-block" id="HotelsAPI"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsAPI">[docs]</a><span class="k">class</span> <span class="nc">HotelsAPI</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">RapidAPIBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Provides methods to interact with hotels.com API from RapidAPI.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        locale: a string representing a locale to be used in searches in ISO format</span>
+<span class="sd">        e.g: en_US, ru_RU, en_GB, and so on</span>
+
+<span class="sd">        currency: a currency to be used in return from the APIs calls, e.g: USD, RUB, ...</span>
+
+<span class="sd">        base_url: a base url that would be added into every request</span>
+<span class="sd">        host: a host that is needed for the RapidAPI to distinguish where to route request to</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="s2">&quot;en_US&quot;</span>
+    <span class="n">currency</span> <span class="o">=</span> <span class="s2">&quot;USD&quot;</span>
+
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://hotels4.p.rapidapi.com&quot;</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;hotels4.p.rapidapi.com&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Init the class with api key and api host from the class definition.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+
+<div class="viewcode-block" id="HotelsAPI.update_property_with_info"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsAPI.update_property_with_info">[docs]</a>    <span class="k">def</span> <span class="nf">update_property_with_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prop</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtains info about a property from its&#39; id and adds additional info.</span>
+
+<span class="sd">        Some info such as images and address is not being listed in the</span>
+<span class="sd">        /v2/list/ API call, and thus that info should be obtained through this</span>
+<span class="sd">        API call</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            prop: a dataclass that represents a property</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            it updates the original property</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/properties/v2/detail&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;currency&quot;</span><span class="p">:</span> <span class="n">prop</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">currency</span><span class="o">.</span><span class="n">get_code</span><span class="p">(),</span>
+                <span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale</span><span class="p">,</span>
+                <span class="s2">&quot;propertyId&quot;</span><span class="p">:</span> <span class="n">prop</span><span class="o">.</span><span class="n">id</span>
+                <span class="p">}</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">_update_property_with_data</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="nb">property</span><span class="o">=</span><span class="n">prop</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="HotelsAPI.search_properties"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsAPI.search_properties">[docs]</a>    <span class="k">def</span> <span class="nf">search_properties</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> 
+            <span class="n">search_dataclass</span><span class="p">:</span> <span class="n">HotelsPropertySearchDataclass</span>
+            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">PropertyDataclass</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Searches for properties listed in the hotels.com.</span>
+
+<span class="sd">        This method gets the information about the properties that could be</span>
+<span class="sd">        checked in furtherly by the persons that are searching for properties.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            search_dataclass: a dataclass that consists all the filled info</span>
+<span class="sd">            about the search such as dates, price filter, amount of persons</span>
+<span class="sd">            and so on</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/properties/v2/list&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">search_dataclass</span><span class="o">.</span><span class="n">build_query_dict</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">_parse_properties_response_into_dataclasses</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="HotelsAPI.search_locations"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsAPI.search_locations">[docs]</a>    <span class="k">def</span> <span class="nf">search_locations</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> 
+            <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">locale</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">LocationDataclass</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gets all the locations(cities, hotels) for the given query.</span>
+
+<span class="sd">        This is quite counter-intuitive, but locations could be not only</span>
+<span class="sd">        cities, parks, point of views but also hotels. Mainly this method</span>
+<span class="sd">        is used to get cities locations specific for the hotels API, and then</span>
+<span class="sd">        obtained info about in consequent properties searches.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: a string representing a location to search for, for example: New York, Dallas, ...</span>
+<span class="sd">            locale: an ISO locale to be used in response such as ru_RU, en_GB, en_US</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">locale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">locale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/locations/v3/search&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span> <span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="p">})</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">_parse_locations_response_into_dataclasses</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="HotelsAPI.get_meta_data"><a class="viewcode-back" href="../../lib.html#lib.hotels.HotelsAPI.get_meta_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HotelsCountryInfoDataclass</span><span class="p">]:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/v2/get-meta-data&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">_parse_countries_into_dataclasses</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div></div>
+
+
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Ostap Sukhovey &lt;postrelovvv@mail.ru&gt;
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    </body>
+</html>
